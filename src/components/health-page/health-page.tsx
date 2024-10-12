@@ -36,7 +36,7 @@ export const HealthPage = (props: THealthPageProps) => {
               cardSize === size.SMALL ? styles.checkboxActive : ''
             )}
           />
-          <p className={styles.buttonText}>Малый размер</p>
+          <p className={styles.buttonText}>{size.SMALL}</p>
         </button>
         <button
           className={styles.toggleButton}
@@ -49,10 +49,14 @@ export const HealthPage = (props: THealthPageProps) => {
               cardSize === size.BIG ? styles.checkboxActive : ''
             )}
           />
-          <p className={styles.buttonText}>Большой размер</p>
+          <p className={styles.buttonText}>{size.BIG}</p>
         </button>
       </div>
-      <div className={styles.widget}>
+      <div
+        className={
+          cardSize === size.BIG ? styles.widgetBig : styles.widgetSmall
+        }
+      >
         {cardSize === size.SMALL && <>{props.childrenSmall}</>}
         {cardSize === size.BIG && <>{props.childrenBig}</>}
       </div>

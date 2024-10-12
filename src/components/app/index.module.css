@@ -6,11 +6,33 @@
     margin: 0;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
 .app {
     font-family: 'Inter', sans-serif;
     background: #0A0A0A;
     height: 100vh;
     color: #fff;
-    
+    min-width: 360px;
+}
+
+.nav {
+    height: clamp(2.875rem, 2.6667rem + 0.9259vw, 3.5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.9375rem, 0.4167rem + 2.3148vw, 2.5rem);
+}
+
+.navElement {
+    color: #898989;
+    font-size: clamp(0.75rem, 0.625rem + 0.5556vw, 1.125rem);
+}
+
+.active {
+    font-weight: 800;
+    color: #fff;
 }

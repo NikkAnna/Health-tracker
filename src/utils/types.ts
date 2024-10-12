@@ -10,8 +10,18 @@ export type TCard = {
 export type ValueOf<T> = T[keyof T];
 
 export const size = {
-  BIG: 'big',
-  SMALL: 'small'
+  BIG: 'Большой размер',
+  SMALL: 'Малый размер'
 };
 
 export type TSize = ValueOf<typeof size>;
+
+export const nav = {
+  PRESSURE: 'Давление',
+  PULSE: 'Пульс',
+  TEMPERATURE: 'Температура',
+  WEATHER: 'Температура на улице',
+  GRAFICS: 'Графики'
+};
+
+export type TNav = ValueOf<typeof size>;
