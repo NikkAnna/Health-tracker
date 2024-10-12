@@ -1,6 +1,5 @@
 .card {
-    max-width: 274px;
-    color: #FFF;
+    width: clamp(14.375rem, 13.25rem + 5vw, 17.75rem);
     background: #131415;
     border-radius: 8px;
     padding: 10px 0;
@@ -114,7 +113,10 @@
 .texboxSmall {
     display: flex;
     gap: 8px;
-    
+}
+
+.textboxBig {
+    text-align: center;
 }
 
 

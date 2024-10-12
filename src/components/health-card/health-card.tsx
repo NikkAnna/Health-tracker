@@ -16,10 +16,10 @@ export const HealthCard = (props: THealthCardComponent) => {
     <article>
       {props.size === size.BIG && (
         <div className={cn(styles.bigCardWrapper, styles.card)}>
-          <h1 className={cn(styles.title, styles.titleBig)}>
+          <h2 className={cn(styles.title, styles.titleBig)}>
             {props.card.name}
-          </h1>
-          <div>
+          </h2>
+          <div className={styles.textboxBig}>
             <p className={styles.valueTextBig}>{props.card.value}</p>
             <p className={styles.unitsTextBig}>{props.card.units}</p>
           </div>
@@ -47,9 +47,9 @@ export const HealthCard = (props: THealthCardComponent) => {
       {props.size === size.SMALL && (
         <div className={cn(styles.smallCardWrapper, styles.card)}>
           <div className={styles.smallCardSection}>
-            <h1 className={cn(styles.title, styles.titleSmall)}>
+            <h2 className={cn(styles.title, styles.titleSmall)}>
               {props.card.name}
-            </h1>
+            </h2>
             <button
               type='button'
               onClick={handleChangeValue}

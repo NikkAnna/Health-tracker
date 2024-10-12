@@ -1,0 +1,49 @@
+.title {
+    font-size: clamp(1.875rem, 1.6667rem + 0.9259vw, 2.5rem);
+    text-align: center;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    gap: 46px;
+}
+
+.buttonWrapper {
+    display: flex;
+    gap: clamp(2.1875rem, 1.875rem + 1.3889vw, 3.125rem);
+}
+
+.toggleButton {
+    max-width: 155px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+.checkbox {
+    width: 24px;
+    height: 24px;
+    background: transparent;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.checkboxActive {
+    border: 8px solid #FF7E1D;
+}
+
+.buttonText {
+    color: #fff;
+    font-size: clamp(0.625rem, 0.5417rem + 0.3704vw, 0.875rem);
+    font-family: 'Inter', sans-serif;
+}  
+

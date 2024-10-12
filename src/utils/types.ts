@@ -9,9 +9,9 @@ export type TCard = {
 
 export type ValueOf<T> = T[keyof T];
 
-export type TSize = ValueOf<typeof size>;
-
 export const size = {
   BIG: 'big',
   SMALL: 'small'
 };
+
+export type TSize = ValueOf<typeof size>;
