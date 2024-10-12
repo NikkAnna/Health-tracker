@@ -1,0 +1,121 @@
+.card {
+    max-width: 274px;
+    color: #FFF;
+    background: #131415;
+    border-radius: 8px;
+    padding: 10px 0;
+}
+
+.bigCardWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    max-height: 180px;
+}
+
+.smallCardWrapper {
+    max-height: 90px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.title {
+    font-weight: 800;
+}
+
+.titleBig {
+    font-size: clamp(0.75rem, 0.5833rem + 0.7407vw, 1.25rem);
+}
+
+.titleSmall {
+    font-size: clamp(0.625rem, 0.5rem + 0.5556vw, 1rem);
+}
+
+.valueTextBig {
+    font-size: clamp(1.625rem, 1.4167rem + 0.9259vw, 2.25rem);
+}
+
+.valueTextSmall {
+    font-size: clamp(1rem, 0.875rem + 0.5556vw, 1.375rem);
+}
+
+.unitsTextBig {
+    font-size: clamp(0.625rem, 0.5rem + 0.5556vw, 1rem);
+}
+
+.unitsTextSmall {
+    font-size: clamp(0.625rem, 0.5417rem + 0.3704vw, 0.875rem);
+    align-self: flex-end;
+}
+
+.slider {
+    height: 4px;
+    background: #3F3F40;
+    border-radius: 1px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+}
+
+.sliderBig {
+    width: clamp(9.375rem, 8.4167rem + 4.2593vw, 12.25rem);
+}
+
+.sliderSmall {
+    width: clamp(6.75rem, 6.4792rem + 1.2037vw, 7.5625rem);
+}   
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 2px solid #FF7E1D;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+}
+
+.button {
+    background: #3F3F40;
+    color: #fff;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+}
+
+.buttonBig {
+    width: clamp(9.375rem, 8.4167rem + 4.2593vw, 12.25rem);
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttonSmall {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonTextBig {
+    font-size: clamp(0.5625rem, 0.4583rem + 0.463vw, 0.875rem); 
+}
+
+.smallCardSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.texboxSmall {
+    display: flex;
+    gap: 8px;
+    
+}
+
+
+

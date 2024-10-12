@@ -1,6 +1,6 @@
 import * as ReactDOMClient from 'react-dom/client';
 
-import App from './components/app';
+import App from './components/app/app';
 import React from 'react';
 
 const container = document.getElementById('root') as HTMLElement;
