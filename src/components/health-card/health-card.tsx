@@ -1,5 +1,5 @@
 import { TCard, TSize, size } from '../../utils/types';
-import { EditIcon } from '../../utils/edit-icon';
+import { EditIcon } from '../../utils/icons/edit-icon';
 import cn from 'classnames';
 
 import styles from './index.module.css';

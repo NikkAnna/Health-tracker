@@ -1,0 +1,90 @@
+.modal {
+    width: clamp(14.375rem, 13.25rem + 5vw, 17.75rem);
+    background: #131415;
+    border-radius: 8px;
+    padding: 10px 10px;
+    color: #fff;
+    position: relative;
+}
+
+.bigModalWrapper {
+    display: flex;
+    flex-direction: column;
+    max-height: 180px;
+    align-items: center;
+    gap: 35px;
+}
+
+.smallModalWrapper {
+    max-height: 90px;
+    padding: 10px 10px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title {
+    font-weight: 800;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: 'Inter', sans-serif;
+}
+
+.titleBig {
+    font-size: clamp(0.75rem, 0.5833rem + 0.7407vw, 1.25rem);
+    margin: 0 0 9px 0;
+}
+
+.titleSmall {
+    font-size: clamp(0.625rem, 0.5rem + 0.5556vw, 1rem);
+}
+
+.form {
+    width: 100%;
+}
+
+.input {
+    width: 100%;
+    height: 20px;
+    padding: 0 16px;
+    font-size: clamp(0.5625rem, 0.4792rem + 0.3704vw, 0.8125rem);
+    background: #131415;
+    border: 1px solid #2F3035;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.input::placeholder {
+    color: #A5A3A9;
+    font-size: clamp(0.5625rem, 0.4792rem + 0.3704vw, 0.8125rem);
+}
+
+.modalOverlay {
+    position: absolute;
+    inset: 0;
+    width: 100vh;
+    background: #000;
+    opacity: 50%;
+}
+
+.buttonsBox {
+    display: flex;
+    gap: 3px;
+}
+
+.titleAndButtonsBox {
+    display: flex;
+    gap: 3px;
+}
+
+.button {
+    background: #3F3F40;
+    border: none;
+    border-radius: 5px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -6,6 +6,7 @@ import cn from 'classnames';
 
 import styles from './index.module.css';
 import { NavElement } from '../nav-element/nav-element';
+import { Modal } from '../modal/modal';
 
 const Card: TCard = {
   name: 'Диастолическое давление',
@@ -66,6 +67,8 @@ const App = () => {
           }
         />
       )}
+      <Modal size={size.SMALL} onClose={() => {}} header={Card.name} />
+      <Modal size={size.BIG} onClose={() => {}} header={Card.name} />
     </div>
   );
 };

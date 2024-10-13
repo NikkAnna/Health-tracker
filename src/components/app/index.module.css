@@ -21,6 +21,9 @@ a {
 
 .nav {
     height: clamp(2.875rem, 2.6667rem + 0.9259vw, 3.5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navList {
