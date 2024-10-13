@@ -4,7 +4,12 @@
     border-radius: 8px;
     padding: 10px 10px;
     color: #fff;
-    position: relative;
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
 .bigModalWrapper {
@@ -12,7 +17,7 @@
     flex-direction: column;
     max-height: 180px;
     align-items: center;
-    gap: 35px;
+    gap: 35px;  
 }
 
 .smallModalWrapper {
@@ -53,19 +58,33 @@
     border: 1px solid #2F3035;
     border-radius: 5px;
     font-family: inherit;
+    color: #fff;
+    font-weight: 700;
 }
 
 .input::placeholder {
     color: #A5A3A9;
     font-size: clamp(0.5625rem, 0.4792rem + 0.3704vw, 0.8125rem);
+    font-weight: 400;
+}
+
+.input:hover {
+    border: 1px solid #fff;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .modalOverlay {
     position: absolute;
     inset: 0;
-    width: 100vh;
+    width: 100%;
+    height: 100vh;
     background: #000;
-    opacity: 50%;
+    opacity: 90%;
 }
 
 .buttonsBox {
@@ -76,6 +95,7 @@
 .titleAndButtonsBox {
     display: flex;
     gap: 3px;
+    justify-content: space-between;
 }
 
 .button {
@@ -87,4 +107,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 70%;
 }

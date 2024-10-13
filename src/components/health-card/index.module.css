@@ -81,6 +81,11 @@
     font-family: inherit;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 70%;
 }
 
 .buttonBig {

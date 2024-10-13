@@ -37,6 +37,10 @@
     border: 1px solid #fff;
 }
 
+.toggleButton:hover .checkbox {
+    border: 8px solid #FF7E1D;
+}
+
 .checkboxActive {
     border: 8px solid #FF7E1D;
 }

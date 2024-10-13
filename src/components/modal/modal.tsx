@@ -29,7 +29,11 @@ export const Modal = (props: ModalProps): ReactElement =>
             />
           </form>
           <div className={styles.buttonsBox}>
-            <button type='button' className={styles.button}>
+            <button
+              type='button'
+              className={styles.button}
+              onClick={props.onClose}
+            >
               <CancelIcon />
             </button>
             <button type='button' className={styles.button}>
@@ -45,12 +49,18 @@ export const Modal = (props: ModalProps): ReactElement =>
             <h3 className={cn(styles.title, styles.titleSmall)}>
               {props.header}
             </h3>
-            <button type='button' className={styles.button}>
-              <CancelIcon />
-            </button>
-            <button type='button' className={styles.button}>
-              <CheckIcon />
-            </button>
+            <div className={styles.buttonsBox}>
+              <button
+                type='button'
+                className={styles.button}
+                onClick={props.onClose}
+              >
+                <CancelIcon />
+              </button>
+              <button type='button' className={styles.button}>
+                <CheckIcon />
+              </button>
+            </div>
           </div>
           <form className={styles.form}>
             <input
