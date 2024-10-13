@@ -5,6 +5,7 @@ import { HealthPage } from '../health-page/health-page';
 import cn from 'classnames';
 
 import styles from './index.module.css';
+import { NavElement } from '../nav-element/nav-element';
 
 const Card: TCard = {
   name: 'Диастолическое давление',
@@ -27,48 +28,26 @@ const Card2: TCard = {
 const App = () => {
   const [section, setSection] = useState<TNav>(nav.PRESSURE);
 
-  const handlePressure = () => {
-    setSection(nav.PRESSURE);
-  };
-
-  const handlePulse = () => {
-    setSection(nav.PULSE);
-  };
-
-  const handleTemperature = () => {
-    setSection(nav.TEMPERATURE);
-  };
-
   return (
     <div className={styles.app}>
       <nav className={styles.nav}>
-        <p
-          className={cn(
-            styles.navElement,
-            section === nav.PRESSURE ? styles.active : ''
-          )}
-          onClick={handlePressure}
-        >
-          <a href='#'>{nav.PRESSURE}</a>
-        </p>
-        <p
-          className={cn(
-            styles.navElement,
-            section === nav.PULSE ? styles.active : ''
-          )}
-          onClick={handlePulse}
-        >
-          <a href='#'>{nav.PULSE}</a>
-        </p>
-        <p
-          className={cn(
-            styles.navElement,
-            section === nav.TEMPERATURE ? styles.active : ''
-          )}
-          onClick={handleTemperature}
-        >
-          <a href='#'>{nav.TEMPERATURE}</a>
-        </p>
+        <ul className={styles.navList}>
+          <NavElement
+            name={nav.PRESSURE}
+            section={section}
+            setSection={setSection}
+          />
+          <NavElement
+            name={nav.PULSE}
+            section={section}
+            setSection={setSection}
+          />
+          <NavElement
+            name={nav.TEMPERATURE}
+            section={section}
+            setSection={setSection}
+          />
+        </ul>
       </nav>
       {section === nav.PRESSURE && (
         <HealthPage

@@ -13,14 +13,6 @@ type THealthPageProps = {
 export const HealthPage = (props: THealthPageProps) => {
   const [cardSize, setCardSize] = useState<TSize>(size.SMALL);
 
-  const handleTogglerSmall = () => {
-    setCardSize(size.SMALL);
-  };
-
-  const handleTogglerBig = () => {
-    setCardSize(size.BIG);
-  };
-
   return (
     <section className={styles.page}>
       <h1 className={styles.title}>{props.title}</h1>
@@ -28,7 +20,9 @@ export const HealthPage = (props: THealthPageProps) => {
         <button
           className={styles.toggleButton}
           type='button'
-          onClick={handleTogglerSmall}
+          onClick={() => {
+            setCardSize(size.SMALL);
+          }}
         >
           <div
             className={cn(
@@ -41,7 +35,9 @@ export const HealthPage = (props: THealthPageProps) => {
         <button
           className={styles.toggleButton}
           type='button'
-          onClick={handleTogglerBig}
+          onClick={() => {
+            setCardSize(size.BIG);
+          }}
         >
           <div
             className={cn(

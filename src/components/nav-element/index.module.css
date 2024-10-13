@@ -1,0 +1,9 @@
+.navElement {
+    color: #898989;
+    font-size: clamp(0.75rem, 0.625rem + 0.5556vw, 1.125rem);
+}
+
+.active {
+    font-weight: 800;
+    color: #fff;
+}
