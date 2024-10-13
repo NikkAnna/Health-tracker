@@ -60,12 +60,16 @@
     display: flex;
     justify-content: center;
     gap: 35px;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 0;
 }
 
 .widgetSmall {
     display: flex;
     justify-content: center;
     gap: 24px;
+    transition: opacity 1.5s ease-in-out;
+    opacity: 0;
 }
 
 @media screen and (width <= 690px) {
