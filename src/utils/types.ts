@@ -1,6 +1,6 @@
 export type TCard = {
   name: string;
-  value: number;
+  value: number[];
   units: string;
   maxValue: number;
   minValue: number;

@@ -7,28 +7,20 @@ import cn from 'classnames';
 import styles from './index.module.css';
 import { NavElement } from '../nav-element/nav-element';
 import { Modal } from '../modal/modal';
-
-const Card: TCard = {
-  name: 'Диастолическое давление',
-  value: 125,
-  units: 'мм. рт. ст.',
-  maxValue: 350,
-  minValue: 50,
-  allowEdit: true
-};
-
-const Card2: TCard = {
-  name: 'Систолическое давление',
-  value: 125,
-  units: 'мм. рт. ст.',
-  maxValue: 350,
-  minValue: 50,
-  allowEdit: true
-};
+import { useSelector } from '../../store/store';
+import {
+  getPressureSelector,
+  getPulseSelector,
+  getTemperatureSelector
+} from '../../store/dataSlice';
 
 const App = () => {
   const [section, setSection] = useState<TNav>(nav.PRESSURE);
   const [visible, setVisible] = useState<TSize>('');
+
+  const pressure = useSelector(getPressureSelector);
+  const pulse = useSelector(getPulseSelector);
+  const temperature = useSelector(getTemperatureSelector);
 
   return (
     <div className={styles.app}>
@@ -57,14 +49,14 @@ const App = () => {
           childrenSmall={
             <>
               <HealthCard
-                card={Card}
+                card={pressure[0]}
                 size={size.SMALL}
                 onModalOpen={() => {
                   setVisible(size.SMALL);
                 }}
               />
               <HealthCard
-                card={Card2}
+                card={pressure[1]}
                 size={size.SMALL}
                 onModalOpen={() => {
                   setVisible(size.SMALL);
@@ -75,14 +67,14 @@ const App = () => {
           childrenBig={
             <>
               <HealthCard
-                card={Card}
+                card={pressure[0]}
                 size={size.BIG}
                 onModalOpen={() => {
                   setVisible(size.BIG);
                 }}
               />
               <HealthCard
-                card={Card2}
+                card={pressure[1]}
                 size={size.BIG}
                 onModalOpen={() => {
                   setVisible(size.BIG);
@@ -98,7 +90,7 @@ const App = () => {
           onClose={() => {
             setVisible('');
           }}
-          header={Card.name}
+          header={pressure[0].name}
         />
       )}
       {visible === size.BIG && (
@@ -107,7 +99,7 @@ const App = () => {
           onClose={() => {
             setVisible('');
           }}
-          header={Card.name}
+          header={pressure[1].name}
         />
       )}
     </div>

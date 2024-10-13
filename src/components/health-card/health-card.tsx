@@ -24,7 +24,7 @@ export const HealthCard = (props: THealthCardComponent) => (
             type='range'
             max={props.card.maxValue}
             min={props.card.minValue}
-            value={props.card.value}
+            value={props.card.value[props.card.value.length - 1]}
             step='1'
             className={cn(styles.slider, styles.sliderBig)}
           />
@@ -64,7 +64,7 @@ export const HealthCard = (props: THealthCardComponent) => (
               type='range'
               max={props.card.maxValue}
               min={props.card.minValue}
-              value={props.card.value}
+              value={props.card.value[props.card.value.length - 1]}
               className={cn(styles.slider, styles.sliderSmall)}
             />
           </form>
