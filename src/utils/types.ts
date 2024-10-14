@@ -21,7 +21,7 @@ export const nav = {
   PULSE: 'Пульс',
   TEMPERATURE: 'Температура',
   WEATHER: 'Температура на улице',
-  GRAFICS: 'Графики'
+  CHARTS: 'Графики'
 };
 
 export type TNav = ValueOf<typeof nav>;
@@ -40,7 +40,20 @@ export const pageTitles = {
   PRESSURE: 'Просмотр и изменение показателей давления',
   PULSE: 'Просмотр и изменение показателей пульса',
   TEMPERATURE: 'Просмотр и изменение показателей температуры',
-  WEATHER: 'Просмотр и изменение показателея температуры на улице'
+  WEATHER: 'Просмотр и изменение показателея температуры на улице',
+  CHARTS: 'История изменения параметров'
 };
 
 export type TPageTitles = ValueOf<typeof pageTitles>;
+
+export const chartTypes = {
+  BAR: 'Bar Chart',
+  LINE: 'Area Chart'
+};
+
+export type TChartTypes = ValueOf<typeof chartTypes>;
+
+export type TChartData = {
+  name: string;
+  value: number;
+};

@@ -1,10 +1,14 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { TCard } from '../utils/types';
+import { TCard, TChartData } from '../utils/types';
 
 export type TCardState = {
   pressure: TCard[];
+  pressureSData: TChartData[];
+  pressureDData: TChartData[];
   pulse: TCard;
+  pulseData: TChartData[];
   temperature: TCard;
+  temperatureData: TChartData[];
   loader: boolean;
 };
 
@@ -27,6 +31,8 @@ export const initialState: TCardState = {
       allowEdit: true
     }
   ],
+  pressureSData: [{ name: '', value: 760 }],
+  pressureDData: [{ name: '', value: 760 }],
   pulse: {
     name: 'Пульс',
     value: [120],
@@ -35,6 +41,7 @@ export const initialState: TCardState = {
     minValue: 40,
     allowEdit: true
   },
+  pulseData: [{ name: '', value: 120 }],
   temperature: {
     name: 'Температура',
     value: [36.6],
@@ -43,6 +50,7 @@ export const initialState: TCardState = {
     minValue: 35.0,
     allowEdit: true
   },
+  temperatureData: [{ name: '', value: 36.6 }],
   loader: false
 };
 
@@ -57,15 +65,19 @@ const dataSlice = createSlice({
       switch (action.payload.name) {
         case 'Систолическое давление':
           state.pressure[0].value.push(action.payload.value);
+          state.pressureSData.push({ name: '', value: action.payload.value });
           break;
         case 'Диастолическое давление':
           state.pressure[1].value.push(action.payload.value);
+          state.pressureDData.push({ name: '', value: action.payload.value });
           break;
         case 'Пульс':
           state.pulse.value.push(action.payload.value);
+          state.pulseData.push({ name: '', value: action.payload.value });
           break;
         case 'Температура':
           state.temperature.value.push(action.payload.value);
+          state.temperatureData.push({ name: '', value: action.payload.value });
           break;
       }
     }
@@ -73,11 +85,22 @@ const dataSlice = createSlice({
   selectors: {
     getPressureSelector: (state) => state.pressure,
     getPulseSelector: (state) => state.pulse,
-    getTemperatureSelector: (state) => state.temperature
+    getTemperatureSelector: (state) => state.temperature,
+    getPressureDDataSelector: (state) => state.pressureDData,
+    getPressureSDataSelector: (state) => state.pressureSData,
+    getPulseDataSelector: (state) => state.pulseData,
+    getTemperatureDataSelector: (state) => state.temperatureData
   }
 });
 
 export const dataReducer = dataSlice.reducer;
 export const { recodeData } = dataSlice.actions;
-export const { getPressureSelector, getPulseSelector, getTemperatureSelector } =
-  dataSlice.selectors;
+export const {
+  getPressureSelector,
+  getPulseSelector,
+  getTemperatureSelector,
+  getPressureDDataSelector,
+  getPressureSDataSelector,
+  getPulseDataSelector,
+  getTemperatureDataSelector
+} = dataSlice.selectors;

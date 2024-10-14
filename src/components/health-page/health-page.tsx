@@ -7,6 +7,8 @@ import styles from './index.module.css';
 
 type THealthPageProps = {
   title: string;
+  type: 'indicators' | 'charts';
+  buttonTitles: string[];
   childrenBig: ReactElement;
   childrenSmall: ReactElement;
 };
@@ -32,7 +34,9 @@ export const HealthPage = (props: THealthPageProps) => {
   };
 
   return (
-    <section className={styles.page}>
+    <section
+      className={props.type === 'indicators' ? styles.page : styles.pageCharts}
+    >
       <h1 className={styles.title}>{props.title}</h1>
       <div className={styles.buttonWrapper}>
         <button
@@ -50,7 +54,7 @@ export const HealthPage = (props: THealthPageProps) => {
               cardSize === size.SMALL ? styles.checkboxActive : ''
             )}
           />
-          <p className={styles.buttonText}>{size.SMALL}</p>
+          <p className={styles.buttonText}>{props.buttonTitles[0]}</p>
         </button>
         <button
           className={styles.toggleButton}
@@ -67,7 +71,7 @@ export const HealthPage = (props: THealthPageProps) => {
               cardSize === size.BIG ? styles.checkboxActive : ''
             )}
           />
-          <p className={styles.buttonText}>{size.BIG}</p>
+          <p className={styles.buttonText}>{props.buttonTitles[1]}</p>
         </button>
       </div>
       <div>
@@ -75,7 +79,11 @@ export const HealthPage = (props: THealthPageProps) => {
           {(state) => (
             <div
               ref={nodeRef}
-              className={styles.widgetSmall}
+              className={
+                props.type === 'indicators'
+                  ? styles.widgetSmall
+                  : styles.widgetCharts
+              }
               style={{
                 ...transitionStyles[state]
               }}
@@ -88,7 +96,11 @@ export const HealthPage = (props: THealthPageProps) => {
           {(state) => (
             <div
               ref={nodeRef}
-              className={styles.widgetBig}
+              className={
+                props.type === 'indicators'
+                  ? styles.widgetSmall
+                  : styles.widgetCharts
+              }
               style={{
                 ...transitionStyles[state]
               }}

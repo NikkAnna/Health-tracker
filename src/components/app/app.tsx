@@ -3,6 +3,7 @@ import {
   THeaders,
   TNav,
   TSize,
+  chartTypes,
   headers,
   nav,
   pageTitles,
@@ -14,13 +15,68 @@ import { NavElement } from '../nav-element/nav-element';
 import { Modal } from '../modal/modal';
 import { useSelector } from '../../store/store';
 import {
+  getPressureDDataSelector,
+  getPressureSDataSelector,
   getPressureSelector,
+  getPulseDataSelector,
   getPulseSelector,
+  getTemperatureDataSelector,
   getTemperatureSelector
 } from '../../store/dataSlice';
-import cn from 'classnames';
 
 import styles from './index.module.css';
+import { Charts } from '../charts/chart-card';
+
+const data = [
+  {
+    name: '',
+    value: 760
+  },
+  {
+    name: '',
+    value: 770
+  },
+  {
+    name: '',
+    value: 800
+  },
+  {
+    name: '',
+    value: 760
+  },
+  {
+    name: '',
+    value: 770
+  },
+  {
+    name: '',
+    value: 800
+  },
+  {
+    name: '',
+    value: 760
+  },
+  {
+    name: '',
+    value: 770
+  },
+  {
+    name: '',
+    value: 800
+  },
+  {
+    name: '',
+    value: 760
+  },
+  {
+    name: '',
+    value: 770
+  },
+  {
+    name: '',
+    value: 800
+  }
+];
 
 const App = () => {
   const [section, setSection] = useState<TNav>(nav.PRESSURE);
@@ -30,6 +86,10 @@ const App = () => {
   const pressure = useSelector(getPressureSelector);
   const pulse = useSelector(getPulseSelector);
   const temperature = useSelector(getTemperatureSelector);
+  const pressureDData = useSelector(getPressureDDataSelector);
+  const pressureSData = useSelector(getPressureSDataSelector);
+  const pulseData = useSelector(getPulseDataSelector);
+  const temperatureData = useSelector(getTemperatureDataSelector);
 
   return (
     <div className={styles.app}>
@@ -50,11 +110,18 @@ const App = () => {
             section={section}
             setSection={setSection}
           />
+          <NavElement
+            name={nav.CHARTS}
+            section={section}
+            setSection={setSection}
+          />
         </ul>
       </nav>
       {section === nav.PRESSURE && (
         <HealthPage
           title={pageTitles.PRESSURE}
+          type='indicators'
+          buttonTitles={[size.SMALL, size.BIG]}
           childrenSmall={
             <>
               <HealthCard
@@ -100,6 +167,8 @@ const App = () => {
       {section === nav.PULSE && (
         <HealthPage
           title={pageTitles.PULSE}
+          type='indicators'
+          buttonTitles={[size.SMALL, size.BIG]}
           childrenSmall={
             <>
               <HealthCard
@@ -129,6 +198,8 @@ const App = () => {
       {section === nav.TEMPERATURE && (
         <HealthPage
           title={pageTitles.TEMPERATURE}
+          type='indicators'
+          buttonTitles={[size.SMALL, size.BIG]}
           childrenSmall={
             <>
               <HealthCard
@@ -150,6 +221,72 @@ const App = () => {
                   setVisible(size.BIG);
                   setModalHeader(headers.TEMPERATURE);
                 }}
+              />
+            </>
+          }
+        />
+      )}
+      {section === nav.CHARTS && (
+        <HealthPage
+          title={pageTitles.CHARTS}
+          type='charts'
+          buttonTitles={[chartTypes.BAR, chartTypes.LINE]}
+          childrenSmall={
+            <>
+              <Charts
+                data={pressureSData}
+                title={headers.PRESSURE_S}
+                type={chartTypes.BAR}
+              />
+              <Charts
+                data={pressureDData}
+                title={headers.PRESSURE_D}
+                type={chartTypes.BAR}
+              />
+
+              <Charts
+                data={pulseData}
+                title={headers.PULSE}
+                type={chartTypes.BAR}
+              />
+              <Charts
+                data={temperatureData}
+                title={headers.TEMPERATURE}
+                type={chartTypes.BAR}
+              />
+              <Charts
+                data={data}
+                title={headers.WEATHER}
+                type={chartTypes.BAR}
+              />
+            </>
+          }
+          childrenBig={
+            <>
+              <Charts
+                data={pressureSData}
+                title={headers.PRESSURE_S}
+                type={chartTypes.LINE}
+              />
+              <Charts
+                data={pressureDData}
+                title={headers.PRESSURE_D}
+                type={chartTypes.LINE}
+              />
+              <Charts
+                data={pulseData}
+                title={headers.PULSE}
+                type={chartTypes.LINE}
+              />
+              <Charts
+                data={temperatureData}
+                title={headers.TEMPERATURE}
+                type={chartTypes.LINE}
+              />
+              <Charts
+                data={data}
+                title={headers.WEATHER}
+                type={chartTypes.LINE}
               />
             </>
           }

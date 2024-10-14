@@ -11,9 +11,12 @@ a {
     text-decoration: none;
 }
 
+body {
+    background: #0A0A0A;
+}
+
 .app {
     font-family: 'Inter', sans-serif;
-    background: #0A0A0A;
     height: 100vh;
     color: #fff;
     min-width: 360px;
