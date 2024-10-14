@@ -47,7 +47,6 @@
 
 .unitsTextSmall {
     font-size: clamp(0.625rem, 0.5417rem + 0.3704vw, 0.875rem);
-    align-self: flex-end;
 }
 
 .slider {
@@ -118,6 +117,7 @@
 .texboxSmall {
     display: flex;
     gap: 8px;
+    align-items: flex-end;
 }
 
 .textboxBig {

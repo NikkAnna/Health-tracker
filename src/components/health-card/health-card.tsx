@@ -16,7 +16,9 @@ export const HealthCard = (props: THealthCardComponent) => (
       <div className={cn(styles.bigCardWrapper, styles.card)}>
         <h2 className={cn(styles.title, styles.titleBig)}>{props.card.name}</h2>
         <div className={styles.textboxBig}>
-          <p className={styles.valueTextBig}>{props.card.value}</p>
+          <p className={styles.valueTextBig}>
+            {props.card.value[props.card.value.length - 1]}
+          </p>
           <p className={styles.unitsTextBig}>{props.card.units}</p>
         </div>
         <form>
@@ -56,7 +58,9 @@ export const HealthCard = (props: THealthCardComponent) => (
         </div>
         <div className={styles.smallCardSection}>
           <div className={styles.texboxSmall}>
-            <p className={styles.valueTextSmall}>{props.card.value}</p>
+            <p className={styles.valueTextSmall}>
+              {props.card.value[props.card.value.length - 1]}
+            </p>
             <p className={styles.unitsTextSmall}>{props.card.units}</p>
           </div>
           <form>
