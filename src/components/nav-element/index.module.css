@@ -1,6 +1,7 @@
 .navElement {
     color: #898989;
-    font-size: clamp(0.75rem, 0.625rem + 0.5556vw, 1.125rem);
+    font-size: clamp(0.5625rem, 0.375rem + 0.8333vw, 1.125rem);
+    text-align: center;
 }
 
 .navElement:hover {

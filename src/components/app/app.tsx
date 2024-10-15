@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   THeaders,
   TNav,
@@ -13,7 +13,7 @@ import { HealthCard } from '../health-card/health-card';
 import { HealthPage } from '../health-page/health-page';
 import { NavElement } from '../nav-element/nav-element';
 import { Modal } from '../modal/modal';
-import { useSelector } from '../../store/store';
+import { useDispatch, useSelector } from '../../store/store';
 import {
   getPressureDDataSelector,
   getPressureSDataSelector,
@@ -21,68 +21,27 @@ import {
   getPulseDataSelector,
   getPulseSelector,
   getTemperatureDataSelector,
-  getTemperatureSelector
+  getTemperatureSelector,
+  getWeatherSelector,
+  getWeatherThunk
 } from '../../store/dataSlice';
 
 import styles from './index.module.css';
 import { Charts } from '../charts/chart-card';
 
-const data = [
-  {
-    name: '',
-    value: 760
-  },
-  {
-    name: '',
-    value: 770
-  },
-  {
-    name: '',
-    value: 800
-  },
-  {
-    name: '',
-    value: 760
-  },
-  {
-    name: '',
-    value: 770
-  },
-  {
-    name: '',
-    value: 800
-  },
-  {
-    name: '',
-    value: 760
-  },
-  {
-    name: '',
-    value: 770
-  },
-  {
-    name: '',
-    value: 800
-  },
-  {
-    name: '',
-    value: 760
-  },
-  {
-    name: '',
-    value: 770
-  },
-  {
-    name: '',
-    value: 800
-  }
-];
+
 
 const App = () => {
   const [section, setSection] = useState<TNav>(nav.PRESSURE);
   const [visible, setVisible] = useState<TSize>('');
   const [modalHeader, setModalHeader] = useState<THeaders>('');
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getWeatherThunk());
+  }, []);
+  
   const pressure = useSelector(getPressureSelector);
   const pulse = useSelector(getPulseSelector);
   const temperature = useSelector(getTemperatureSelector);
@@ -90,6 +49,9 @@ const App = () => {
   const pressureSData = useSelector(getPressureSDataSelector);
   const pulseData = useSelector(getPulseDataSelector);
   const temperatureData = useSelector(getTemperatureDataSelector);
+  const weather = useSelector(getWeatherSelector);
+
+
 
   return (
     <div className={styles.app}>
@@ -111,6 +73,11 @@ const App = () => {
             setSection={setSection}
           />
           <NavElement
+            name={nav.WEATHER}
+            section={section}
+            setSection={setSection}
+          />
+          <NavElement
             name={nav.CHARTS}
             section={section}
             setSection={setSection}
@@ -126,6 +93,7 @@ const App = () => {
             <>
               <HealthCard
                 card={pressure[0]}
+                type='not-weather'
                 size={size.SMALL}
                 onModalOpen={() => {
                   setVisible(size.SMALL);
@@ -134,6 +102,7 @@ const App = () => {
               />
               <HealthCard
                 card={pressure[1]}
+                type='not-weather'
                 size={size.SMALL}
                 onModalOpen={() => {
                   setVisible(size.SMALL);
@@ -146,6 +115,7 @@ const App = () => {
             <>
               <HealthCard
                 card={pressure[0]}
+                type='not-weather'
                 size={size.BIG}
                 onModalOpen={() => {
                   setVisible(size.BIG);
@@ -154,6 +124,7 @@ const App = () => {
               />
               <HealthCard
                 card={pressure[1]}
+                type='not-weather'
                 size={size.BIG}
                 onModalOpen={() => {
                   setVisible(size.BIG);
@@ -173,6 +144,7 @@ const App = () => {
             <>
               <HealthCard
                 card={pulse}
+                type='not-weather'
                 size={size.SMALL}
                 onModalOpen={() => {
                   setVisible(size.SMALL);
@@ -185,6 +157,7 @@ const App = () => {
             <>
               <HealthCard
                 card={pulse}
+                type='not-weather'
                 size={size.BIG}
                 onModalOpen={() => {
                   setVisible(size.BIG);
@@ -204,6 +177,7 @@ const App = () => {
             <>
               <HealthCard
                 card={temperature}
+                type='not-weather'
                 size={size.SMALL}
                 onModalOpen={() => {
                   setVisible(size.SMALL);
@@ -216,12 +190,30 @@ const App = () => {
             <>
               <HealthCard
                 card={temperature}
+                type='not-weather'
                 size={size.BIG}
                 onModalOpen={() => {
                   setVisible(size.BIG);
                   setModalHeader(headers.TEMPERATURE);
                 }}
               />
+            </>
+          }
+        />
+      )}
+      {section === nav.WEATHER && (
+        <HealthPage
+          title={pageTitles.WEATHER}
+          type='indicators'
+          buttonTitles={[size.SMALL, size.BIG]}
+          childrenSmall={
+            <>
+              <HealthCard card={weather} size={size.SMALL} type='weather'/>
+            </>
+          }
+          childrenBig={
+            <>
+              <HealthCard card={weather} size={size.BIG} type='weather' />
             </>
           }
         />
@@ -254,11 +246,6 @@ const App = () => {
                 title={headers.TEMPERATURE}
                 type={chartTypes.BAR}
               />
-              <Charts
-                data={data}
-                title={headers.WEATHER}
-                type={chartTypes.BAR}
-              />
             </>
           }
           childrenBig={
@@ -281,11 +268,6 @@ const App = () => {
               <Charts
                 data={temperatureData}
                 title={headers.TEMPERATURE}
-                type={chartTypes.LINE}
-              />
-              <Charts
-                data={data}
-                title={headers.WEATHER}
                 type={chartTypes.LINE}
               />
             </>

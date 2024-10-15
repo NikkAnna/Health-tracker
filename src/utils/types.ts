@@ -57,3 +57,12 @@ export type TChartData = {
   name: string;
   value: number;
 };
+
+export type TResponseType = {
+  data: {
+    main: {
+      feels_like: number;
+      temp: number;
+    };
+  };
+};

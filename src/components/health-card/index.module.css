@@ -21,6 +21,10 @@
     gap: 14px;
 }
 
+.weatherWrapper {
+    align-items: center;
+}
+
 .title {
     font-weight: 800;
 }
@@ -122,6 +126,10 @@
 
 .textboxBig {
     text-align: center;
+}
+
+.invisible {
+    display: none;
 }
 
 
