@@ -1,0 +1,37 @@
+.button {
+    background: #3F3F40;
+    color: #fff;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 70%;
+}
+
+.buttonBig {
+    width: clamp(9.375rem, 8.4167rem + 4.2593vw, 12.25rem);
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.buttonSmall {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonTextBig {
+    font-size: clamp(0.5625rem, 0.4583rem + 0.463vw, 0.875rem); 
+}
+
+.invisible {
+    display: none;
+}

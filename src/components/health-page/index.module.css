@@ -29,38 +29,6 @@
     gap: clamp(2.1875rem, 1.875rem + 1.3889vw, 3.125rem);
 }
 
-.toggleButton {
-    max-width: 155px;
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    background: inherit;
-    border: none;
-    cursor: pointer;
-}
-
-.checkbox {
-    width: 24px;
-    height: 24px;
-    background: transparent;
-    border-radius: 50%;
-    border: 1px solid #fff;
-}
-
-.toggleButton:hover .checkbox {
-    border: 8px solid #FF7E1D;
-}
-
-.checkboxActive {
-    border: 8px solid #FF7E1D;
-}
-
-.buttonText {
-    color: #fff;
-    font-size: clamp(0.625rem, 0.5417rem + 0.3704vw, 0.875rem);
-    font-family: 'Inter', sans-serif;
-}  
-
 .widget {
     display: flex;
     justify-content: center;

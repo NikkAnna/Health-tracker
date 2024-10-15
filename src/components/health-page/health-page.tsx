@@ -1,7 +1,8 @@
 import { ReactElement, useEffect, useRef, useState } from 'react';
-import { size, TSize } from '../../utils/types';
-import cn from 'classnames';
 import { Transition } from 'react-transition-group';
+
+import { size, TSize } from '../../utils/types';
+import { Checkbox } from '../ui/checkbox/checkbox';
 
 import styles from './index.module.css';
 
@@ -39,40 +40,24 @@ export const HealthPage = (props: THealthPageProps) => {
     >
       <h1 className={styles.title}>{props.title}</h1>
       <div className={styles.buttonWrapper}>
-        <button
-          className={styles.toggleButton}
-          type='button'
+        <Checkbox
+          active={smallFade}
+          buttonTitle={props.buttonTitles[0]}
           onClick={() => {
             setCardSize(size.SMALL);
             setBigFade(false);
             setSmallFade(true);
           }}
-        >
-          <div
-            className={cn(
-              styles.checkbox,
-              cardSize === size.SMALL ? styles.checkboxActive : ''
-            )}
-          />
-          <p className={styles.buttonText}>{props.buttonTitles[0]}</p>
-        </button>
-        <button
-          className={styles.toggleButton}
-          type='button'
+        />
+        <Checkbox
+          active={bigFade}
+          buttonTitle={props.buttonTitles[1]}
           onClick={() => {
             setCardSize(size.BIG);
             setSmallFade(false);
             setBigFade(true);
           }}
-        >
-          <div
-            className={cn(
-              styles.checkbox,
-              cardSize === size.BIG ? styles.checkboxActive : ''
-            )}
-          />
-          <p className={styles.buttonText}>{props.buttonTitles[1]}</p>
-        </button>
+        />
       </div>
       <div>
         <Transition nodeRef={nodeRef} in={smallFade} timeout={duration}>

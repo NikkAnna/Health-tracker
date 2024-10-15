@@ -66,3 +66,5 @@ export type TResponseType = {
     };
   };
 };
+
+export type TCardTypes = 'weather' | 'not-weather';

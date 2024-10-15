@@ -1,13 +1,16 @@
 import { ReactElement, SyntheticEvent, useState } from 'react';
 import ReactDOM from 'react-dom';
+import cn from 'classnames';
+
+import { useDispatch } from '../../store/store';
+import { recodeData } from '../../store/dataSlice';
 import { CancelIcon } from '../../utils/icons/cancel-icon';
 import { CheckIcon } from '../../utils/icons/check-icon';
-import { headers, size, TSize } from '../../utils/types';
-import cn from 'classnames';
-import { useDispatch } from '../../store/store';
+import { size, TSize } from '../../utils/types';
+import { ModalInput } from '../ui/modal-input/modal-input';
+import { ModalButton } from '../ui/modal-button/modal-button';
 
 import styles from './index.module.css';
-import { recodeData } from '../../store/dataSlice';
 
 interface ModalProps {
   header: string;
@@ -40,25 +43,14 @@ export const Modal = (props: ModalProps): ReactElement => {
             className={cn(styles.formBig, styles.form)}
             onSubmit={handleSubmit}
           >
-            <input
-              type='number'
-              placeholder='Введите значение...'
-              className={styles.input}
-              value={formValue}
-              onChange={handleInputChange}
-            />
-
+            <ModalInput value={formValue} onChange={handleInputChange} />
             <div className={styles.buttonsBox}>
-              <button
+              <ModalButton
                 type='button'
-                className={styles.button}
                 onClick={() => props.onClose('')}
-              >
-                <CancelIcon />
-              </button>
-              <button type='submit' className={styles.button}>
-                <CheckIcon />
-              </button>
+                children={<CancelIcon />}
+              />
+              <ModalButton type='submit' children={<CheckIcon />} />
             </div>
           </form>
         </div>
@@ -72,26 +64,15 @@ export const Modal = (props: ModalProps): ReactElement => {
                 {props.header}
               </h3>
               <div className={styles.buttonsBox}>
-                <button
+                <ModalButton
                   type='button'
-                  className={styles.button}
                   onClick={() => props.onClose('')}
-                >
-                  <CancelIcon />
-                </button>
-                <button type='submit' className={styles.button}>
-                  <CheckIcon />
-                </button>
+                  children={<CancelIcon />}
+                />
+                <ModalButton type='submit' children={<CheckIcon />} />
               </div>
             </div>
-
-            <input
-              type='number'
-              placeholder='Введите значение...'
-              className={styles.input}
-              value={formValue}
-              onChange={handleInputChange}
-            />
+            <ModalInput value={formValue} onChange={handleInputChange} />
           </form>
         </div>
       )}

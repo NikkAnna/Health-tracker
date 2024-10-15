@@ -1,31 +1,30 @@
-import { TCard, TSize, size } from '../../utils/types';
-import { EditIcon } from '../../utils/icons/edit-icon';
+import { useEffect } from 'react';
 import cn from 'classnames';
 
-import styles from './index.module.css';
 import { useSelector } from '../../store/store';
 import { getErrorSelector, getLoaderSelector } from '../../store/dataSlice';
 import { Preloader } from '../preloader/preloader';
-import { useEffect } from 'react';
+import { TCard, TCardTypes, TSize, size } from '../../utils/types';
+import { RangeInput } from '../ui/range-input/range-input';
+import { EditButton } from '../ui/edit-button/edit-button';
+
+import styles from './index.module.css';
 
 type THealthCardComponent = {
   card: TCard;
   size: TSize;
   onModalOpen?: () => void;
-  type?: 'weather' | 'not-weather';
+  type?: TCardTypes;
 };
 
 export const HealthCard = (props: THealthCardComponent) => {
   const loader = useSelector(getLoaderSelector);
   const error = useSelector(getErrorSelector);
 
-  useEffect(() => {console.log(error)}, [error]) //убрать
-
   return (
     <>
       {(props.type === 'not-weather' ||
-        (props.type === 'weather' && !loader && error === undefined)
-        ) && (
+        (props.type === 'weather' && !loader && error === undefined)) && (
         <article>
           {props.size === size.BIG && (
             <div className={cn(styles.bigCardWrapper, styles.card)}>
@@ -41,27 +40,19 @@ export const HealthCard = (props: THealthCardComponent) => {
               <form
                 className={props.type === 'weather' ? styles.invisible : ''}
               >
-                <input
-                  type='range'
-                  max={props.card.maxValue}
-                  min={props.card.minValue}
+                <RangeInput
+                  maxValue={props.card.maxValue}
+                  minValue={props.card.minValue}
                   value={props.card.value[props.card.value.length - 1]}
-                  step='0.1'
-                  className={cn(styles.slider, styles.sliderBig)}
+                  size={props.size}
+                  cardType={props.type}
                 />
               </form>
-              <button
-                type='button'
+              <EditButton
                 onClick={props.onModalOpen}
-                className={cn(
-                  styles.button,
-                  styles.buttonBig,
-                  props.type === 'weather' ? styles.invisible : ''
-                )}
-              >
-                <EditIcon />
-                <p className={styles.buttonTextBig}>Изменить</p>
-              </button>
+                size={props.size}
+                cardType={props.type}
+              />
             </div>
           )}
 
@@ -77,17 +68,11 @@ export const HealthCard = (props: THealthCardComponent) => {
                 <h2 className={cn(styles.title, styles.titleSmall)}>
                   {props.card.name}
                 </h2>
-                <button
-                  type='button'
+                <EditButton
                   onClick={props.onModalOpen}
-                  className={cn(
-                    styles.button,
-                    styles.buttonSmall,
-                    props.type === 'weather' ? styles.invisible : ''
-                  )}
-                >
-                  <EditIcon />
-                </button>
+                  size={props.size}
+                  cardType={props.type}
+                />
               </div>
               <div className={styles.smallCardSection}>
                 <div className={styles.texboxSmall}>
@@ -97,24 +82,18 @@ export const HealthCard = (props: THealthCardComponent) => {
                   <p className={styles.unitsTextSmall}>{props.card.units}</p>
                 </div>
                 <form>
-                  <input
-                    type='range'
-                    max={props.card.maxValue}
-                    min={props.card.minValue}
+                  <RangeInput
+                    maxValue={props.card.maxValue}
+                    minValue={props.card.minValue}
                     value={props.card.value[props.card.value.length - 1]}
-                    className={cn(
-                      styles.slider,
-                      styles.sliderSmall,
-                      props.type === 'weather' ? styles.invisible : ''
-                    )}
-                    step='0.1'
+                    size={props.size}
+                    cardType={props.type}
                   />
                 </form>
               </div>
             </div>
           )}
         </article>
-        
       )}
       {props.type === 'weather' && loader && <Preloader size={props.size} />}
       {props.type === 'weather' && error !== undefined && (

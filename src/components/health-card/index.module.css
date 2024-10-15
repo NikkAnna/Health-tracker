@@ -53,65 +53,6 @@
     font-size: clamp(0.625rem, 0.5417rem + 0.3704vw, 0.875rem);
 }
 
-.slider {
-    height: 4px;
-    background: #3F3F40;
-    border-radius: 1px;
-    appearance: none;
-    -webkit-appearance: none;
-    border: none;
-}
-
-.sliderBig {
-    width: clamp(9.375rem, 8.4167rem + 4.2593vw, 12.25rem);
-}
-
-.sliderSmall {
-    width: clamp(6.75rem, 6.4792rem + 1.2037vw, 7.5625rem);
-}   
-
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: 2px solid #FF7E1D;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-}
-
-.button {
-    background: #3F3F40;
-    color: #fff;
-    font-family: inherit;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.button:hover {
-    opacity: 70%;
-}
-
-.buttonBig {
-    width: clamp(9.375rem, 8.4167rem + 4.2593vw, 12.25rem);
-    height: 27px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.buttonSmall {
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.buttonTextBig {
-    font-size: clamp(0.5625rem, 0.4583rem + 0.463vw, 0.875rem); 
-}
-
 .smallCardSection {
     display: flex;
     justify-content: space-between;
