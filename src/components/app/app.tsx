@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { NavPanel } from '../nav-panel/nav-panel';
 import { MainPage } from '../main-page/main-page';

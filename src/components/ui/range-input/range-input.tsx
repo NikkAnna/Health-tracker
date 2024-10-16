@@ -1,5 +1,7 @@
-import { size, TCardTypes, TSize } from '../../../utils/types';
+import React from 'react';
 import cn from 'classnames';
+
+import { size, TCardTypes, TSize } from '../../../utils/types';
 
 import styles from './index.module.css';
 

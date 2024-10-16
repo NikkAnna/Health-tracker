@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useRef, useState } from 'react';
+import React, { ReactElement, useEffect, useRef, useState } from 'react';
 import { Transition } from 'react-transition-group';
 
 import { size, TSize } from '../../utils/types';

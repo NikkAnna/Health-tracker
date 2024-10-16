@@ -21,8 +21,8 @@
     border: 1px solid #fff;
 }
 
-input::-webkit-inner-spin-button,
-input::-webkit-outer-spin-button {
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
