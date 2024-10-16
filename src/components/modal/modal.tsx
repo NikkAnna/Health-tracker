@@ -43,8 +43,10 @@ export const Modal = (props: ModalProps): ReactElement => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(recodeData({ value: Number(formValue), name: props.header }));
-    props.onClose('');
+    if (formValue) {
+      dispatch(recodeData({ value: Number(formValue), name: props.header }));
+      props.onClose('');
+    }
   };
 
   return (
