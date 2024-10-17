@@ -1,67 +1,68 @@
 .title {
-    font-size: clamp(1.875rem, 1.6667rem + 0.9259vw, 2.5rem);
-    text-align: center;
+  font-size: clamp(1.875rem, 1.6667rem + 0.9259vw, 2.5rem);
+  text-align: center;
 }
 
 .page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 90%;
-    max-width: 840px;
-    margin: 0 auto;
-    gap: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  max-width: 840px;
+  margin: 0 auto;
+  gap: 46px;
 }
 
 .pageCharts {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    gap: 46px;
-    max-width: 840px;
-    align-items: center;
-    padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 46px;
+  max-width: 840px;
+  align-items: center;
+  padding: 30px 0;
 }
 
 .buttonWrapper {
-    display: flex;
-    gap: clamp(2.1875rem, 1.875rem + 1.3889vw, 3.125rem);
+  display: flex;
+  gap: clamp(2.1875rem, 1.875rem + 1.3889vw, 3.125rem);
 }
 
 .widget {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .widgetBig {
-    display: flex;
-    justify-content: center;
-    gap: 35px;
-    transition: opacity 1.5s ease-in-out;
-    opacity: 0;
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
 }
 
 .widgetSmall {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    transition: opacity 1.5s ease-in-out;
-    opacity: 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  transition: opacity 1.5s ease-in-out;
+  opacity: 0;
 }
 
 .widgetCharts {
-    display: flex;
-    gap: 30px;
-    flex-direction: column;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
 
 @media screen and (width <= 690px) {
-    .widgetBig, .widgetSmall {
-        flex-direction: column;
-        align-items: center;
-    }
+  .widgetBig,
+  .widgetSmall {
+    flex-direction: column;
+    align-items: center;
+  }
 }

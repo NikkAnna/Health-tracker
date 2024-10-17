@@ -1,78 +1,78 @@
 .modal {
-    width: clamp(14.375rem, 13.25rem + 5vw, 17.75rem);
-    background: #131415;
-    border-radius: 8px;
-    padding: 10px 10px;
-    color: #fff;
-    position: absolute;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
+  width: clamp(14.375rem, 13.25rem + 5vw, 17.75rem);
+  background: #131415;
+  border-radius: 8px;
+  padding: 10px 10px;
+  color: #fff;
+  position: absolute;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 .bigModalWrapper {
-    display: flex;
-    flex-direction: column;
-    max-height: 180px;
-    align-items: center;
-    gap: 44px;  
+  display: flex;
+  flex-direction: column;
+  max-height: 180px;
+  align-items: center;
+  gap: 44px;
 }
 
 .smallModalWrapper {
-    max-height: 90px;
-    padding: 10px 10px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  max-height: 90px;
+  padding: 10px 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .title {
-    font-weight: 800;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Inter', sans-serif;
 }
 
 .titleBig {
-    font-size: clamp(0.75rem, 0.5833rem + 0.7407vw, 1.25rem);
-    margin: 0 0 9px 0;
+  font-size: clamp(0.75rem, 0.5833rem + 0.7407vw, 1.25rem);
+  margin: 0 0 9px 0;
 }
 
 .titleSmall {
-    font-size: clamp(0.625rem, 0.5rem + 0.5556vw, 1rem);
+  font-size: clamp(0.625rem, 0.5rem + 0.5556vw, 1rem);
 }
 
 .form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .formBig {
-    gap: 35px;
+  gap: 35px;
 }
 
 .modalOverlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100vh;
-    background: #000;
-    opacity: 90%;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  opacity: 90%;
 }
 
 .buttonsBox {
-    display: flex;
-    justify-content: center;
-    gap: 3px;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
 }
 
 .titleAndButtonsBox {
-    display: flex;
-    gap: 3px;
-    justify-content: space-between;
+  display: flex;
+  gap: 3px;
+  justify-content: space-between;
 }

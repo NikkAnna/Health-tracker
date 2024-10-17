@@ -1,14 +1,14 @@
 .nav {
-    height: clamp(2.875rem, 2.6667rem + 0.9259vw, 3.5rem);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: clamp(2.875rem, 2.6667rem + 0.9259vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navList {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: clamp(0.9375rem, 0.4167rem + 2.3148vw, 2.5rem);
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.9375rem, 0.4167rem + 2.3148vw, 2.5rem);
 }

@@ -1,28 +1,28 @@
 .chartWrapper {
-    width: 100%;
-    height: clamp(14.375rem, 11.25rem + 13.8889vw, 23.75rem);
-    border-radius: 8px;
-    background: #131415;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 0 0;
+  width: 100%;
+  height: clamp(14.375rem, 11.25rem + 13.8889vw, 23.75rem);
+  border-radius: 8px;
+  background: #131415;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0 0;
 }
 
 .title {
-    font-weight: 800;
-    font-size: clamp(0.75rem, 0.5833rem + 0.7407vw, 1.25rem);
+  font-weight: 800;
+  font-size: clamp(0.75rem, 0.5833rem + 0.7407vw, 1.25rem);
 }
 
 .yAxis {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .bar {
-    width: clamp(20rem, 10rem + 44.4444vw, 50rem);
-    height: clamp(12.5rem, 9.375rem + 13.8889vw, 21.875rem);
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
+  width: clamp(20rem, 10rem + 44.4444vw, 50rem);
+  height: clamp(12.5rem, 9.375rem + 13.8889vw, 21.875rem);
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
 }

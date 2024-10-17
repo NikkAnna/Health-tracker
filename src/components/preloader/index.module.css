@@ -1,16 +1,16 @@
 .wrapper {
-    width: clamp(14.375rem, 13.25rem + 5vw, 17.75rem);
-    background: #131415;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: clamp(14.375rem, 13.25rem + 5vw, 17.75rem);
+  background: #131415;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .wrapperSmall {
-    height: 90px;
+  height: 90px;
 }
 
 .wrapperBig {
-    height: 180px;
+  height: 180px;
 }

@@ -1,14 +1,14 @@
 .navElement {
-    color: #898989;
-    font-size: clamp(0.5625rem, 0.375rem + 0.8333vw, 1.125rem);
-    text-align: center;
+  color: #898989;
+  font-size: clamp(0.5625rem, 0.375rem + 0.8333vw, 1.125rem);
+  text-align: center;
 }
 
 .navElement:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .active {
-    font-weight: 800;
-    color: #fff;
+  font-weight: 800;
+  color: #fff;
 }
